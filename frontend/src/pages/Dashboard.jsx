@@ -11,9 +11,7 @@ function Dashboard() {
   const dispatch = useDispatch()
 
   const { user } = useSelector((state) => state.auth)
-  const { goals, isLoading, isError, message } = useSelector(
-    (state) => state.goals
-  )
+  const { goals, isLoading, isError, message } = useSelector((state) => state.goal)
 
   useEffect(() => {
     if (isError) {
@@ -41,9 +39,7 @@ function Dashboard() {
         <h1>Welcome {user && user.name}</h1>
         <p>Goals Dashboard</p>
       </section>
-
       <GoalForm />
-
       <section className='content'>
         {goals.length > 0 ? (
           <div className='goals'>
@@ -55,6 +51,10 @@ function Dashboard() {
           <h3>You have not set any goals</h3>
         )}
       </section>
+
+      
+
+      
     </>
   )
 }
